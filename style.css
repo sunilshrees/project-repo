@@ -10,9 +10,6 @@ body {
     font-family: 'Roboto Mono', sans-serif;
 }
 
-.container {
-}
-
 .header {
     height: 10vh;
 }
@@ -32,7 +29,7 @@ body {
     min-height: 90vh;
     background: rgb(104, 155, 199);
 }
-.projects {
+.project-container {
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
@@ -41,32 +38,29 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3rem;
-
     padding: 10rem 5rem;
+}
+
+.featured img {
+    width: 100%;
 }
 
 .card {
     background: black;
     text-decoration: none;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 10px;
-
     flex-direction: column;
-    /* cursor: pointer; */
-
     transition: transform 0.1s linear;
-
     box-shadow: 0 3px 10px #000;
 }
 
-.card:hover {
+/* .card:hover {
     transform: scale(1.01);
     transition: transform 0.1s linear;
-}
+} */
 .card img {
     margin: 20px 0;
 
@@ -91,13 +85,17 @@ body {
     font-weight: 600;
     text-decoration: none;
     color: black;
-    transition: transform 0.3s linear;
-
     background: red;
     padding: 4px 12px;
     color: #fff;
     border-radius: 8px;
     box-shadow: 0px 4px 8px 0px rgb(116, 114, 114);
+
+    transition: transform 0.1s linear;
+}
+.details a:hover {
+    transform: scale(1.03);
+    transition: transform 0.1s linear;
 }
 
 .category {
@@ -133,14 +131,25 @@ body {
     display: flex;
 }
 
+@media screen and (min-width: 1000px) {
+    .featured {
+        grid-column: 1 / span 3;
+    }
+}
 @media screen and (max-width: 1000px) {
     .project {
         grid-template-columns: 1fr 1fr;
+    }
+    .featured {
+        grid-column: 1 / span 2;
     }
 }
 @media screen and (max-width: 768px) {
     .project {
         grid-template-columns: 1fr;
+    }
+    .featured {
+        grid-column: 1;
     }
 }
 @media screen and (max-width: 500px) {
@@ -156,7 +165,5 @@ body {
     }
     .details h1 {
         border-bottom: 1px solid #6d6d6d;
-    }
-    .details a {
     }
 }
